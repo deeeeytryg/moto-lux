@@ -46,7 +46,7 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Subir archivos de la página
-        uses: actions/upload-pages-artifact@v3
+        uses: uses: actions/upload-pages-artifact@v4
         with:
           path: frontend/dist
 
