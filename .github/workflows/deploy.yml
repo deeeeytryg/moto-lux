@@ -17,10 +17,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -35,21 +32,26 @@ jobs:
           cache-dependency-path: frontend/package-lock.json
 
       - name: Instalar dependencias
-        run: npm ci
         working-directory: frontend
+        run: npm ci
 
       - name: Compilar MotoLux
-        run: npm run build
         working-directory: frontend
+        run: npm run build
 
-      - name: Configurar GitHub Pages
-        uses: actions/configure-pages@v5
-
-      - name: Subir archivos de la página
-        uses: uses: actions/upload-pages-artifact@v4
+      - name: Subir archivos de GitHub Pages
+        uses: actions/upload-pages-artifact@v3
         with:
           path: frontend/dist
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
       - name: Publicar MotoLux
         id: deployment
         uses: actions/deploy-pages@v4
