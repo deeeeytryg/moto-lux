@@ -1,0 +1,22 @@
+# Plantilla para desplegar el backend en Render (sin Vercel). Render → New → Blueprint → elige este repo.
+# El disco persistente guarda la base SQLite; en Render requiere un plan de pago. Sin él, los datos se borran al reiniciar.
+services:
+  - type: web
+    name: motolux-api
+    runtime: node
+    rootDir: backend
+    buildCommand: echo "sin dependencias que instalar"
+    startCommand: npm start
+    healthCheckPath: /api/health
+    disk: { name: motolux-data, mountPath: /data, sizeGB: 1 }
+    envVars:
+      - { key: NODE_VERSION, value: 22 }
+      - { key: NODE_ENV, value: production }
+      - { key: DB_PATH, value: /data/motolux.db }
+      - { key: SEED_DEMO, value: "false" }
+      - { key: ALLOWED_ORIGINS, sync: false }      # https://TU_USUARIO.github.io
+      - { key: ADMIN_EMAIL, sync: false }
+      - { key: ADMIN_PASSWORD, sync: false }
+      - { key: ADMIN_SESSION_SECRET, generateValue: true }
+      - { key: ANTHROPIC_API_KEY, sync: false }
+      - { key: AI_MODEL, value: claude-haiku-5-5 }
