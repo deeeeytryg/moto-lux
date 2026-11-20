@@ -3,10 +3,10 @@
 Proyecto final · Ruta Avanzada · Jóvenes creaTIvos. App web full stack **sin Vercel**:
 frontend en **GitHub Pages** y backend en **Render** (o Railway / Fly / VPS).
 
-- **App publicada:** https://TU_USUARIO.github.io/TU_REPO/
-- **Repositorio:** https://github.com/TU_USUARIO/TU_REPO
+- **App publicada:** https://deeeeytryg.github.io/moto-lux/
+- **Repositorio:** https://github.com/deeeeytryg/moto-lux
 - **Equipo:** _(nombres)_
-- **Admin de demostración:** `https://TU_USUARIO.github.io/TU_REPO/#/admin` — usuario y contraseña se entregan aparte a los jurados (nunca se escriben en el código).
+- **Admin de demostración:** `https://deeeeytryg.github.io/TU_REPO/#/admin` — usuario y contraseña se entregan aparte a los jurados (nunca se escriben en el código).
 
 ## Entregables
 
